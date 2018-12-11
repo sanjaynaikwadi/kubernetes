@@ -1,6 +1,6 @@
 # Kubernetes Autoscaling : 
 
-- Horizontal Pod Autoscaler - HPA
-- Vertical Pod Autoscaler - VPA
-- Cluster Autoscaler - CA
+* [Horizontal Pod Autoscaler - HPA] 
+* [Vertical Pod Autoscaler - VPA]
+* [Cluster Autoscaler - CA]
 

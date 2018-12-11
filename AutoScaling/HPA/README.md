@@ -40,6 +40,65 @@ $ kubectl run php-apache --image=k8s.gcr.io/hpa-example --requests=cpu=200m --ex
 service/php-apache created
 deployment.apps/php-apache created
 ```
-Once your pod is up and in running mode we need to add that deployment to autoscale, before proceeding verify your php-apache is running.
+
+### Create Horizontal Pod Autoscaler
+The following command will create a Horizontal Pod Autoscaler that maintains between 1 and 10 replicas of the Pods controlled by the php-apache deployment.
+```
+$ kubectl autoscale deployment php-apache --cpu-percent=50 --min=1 --max=10
+horizontalpodautoscaler.autoscaling/php-apache autoscaled
+```
+
+We may check the current status of autoscaler by running:
+```
+$ kubectl get hpa
+NAME         REFERENCE                     TARGET    MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache/scale   0% / 50%  1         10        1          18s
+```
+
+### Lets Add the Load
+We will start a container, and send an infinite loop of queries to the php-apache service (please run it in a different terminal):
+```
+$ kubectl run -i --tty load-generator --image=busybox /bin/sh
+
+Hit enter for command prompt
+
+$ while true; do wget -q -O- http://php-apache.default.svc.cluster.local; done
+```
+
+Within a minute or so, we should see the higher CPU load by executing:
+```
+$ kubectl get hpa
+NAME         REFERENCE                     TARGET      CURRENT   MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache/scale   305% / 50%  305%      1         10        1          3m
+```
+
+Here, CPU consumption has increased to 305% of the request. As a result, the deployment was resized to 7 replicas:
+```
+$ kubectl get deployment php-apache
+NAME         DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+php-apache   7         7         7            7           19m
+```
+
+### Stop the load
+In the terminal where we created the container with busybox image, terminate the load generation by typing <Ctrl> + C
+Wait for a minute or so and lets verify the status again
+```
+$ kubectl get hpa
+NAME         REFERENCE                     TARGET       MINPODS   MAXPODS   REPLICAS   AGE
+php-apache   Deployment/php-apache/scale   0% / 50%     1         10        1          11m
+
+$ kubectl get deployment php-apache
+NAME         DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+php-apache   1         1         1            1           27m
+```
+
+Cool Your done, you can scale your pods according to your workload.
+
+### Reference Links for additional information
+https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
+https://github.com/kubernetes/community/blob/master/contributors/design-proposals/autoscaling/horizontal-pod-autoscaler.md#autoscaling-algorithm
+https://medium.com/magalix/kubernetes-autoscaling-101-cluster-autoscaler-horizontal-pod-autoscaler-and-vertical-pod-2a441d9ad231
+
+
 
 

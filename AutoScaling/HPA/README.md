@@ -8,6 +8,7 @@ As the name implies, HPA scales the number of pod replicas. Most DevOps use CPU 
 ### Prerequisites
 
 - Kubernetes Cluster (I tested with 1.10.11 via KOPS on AWS)
+- Resource limit set in deployment (check the default yaml file attached for reference)
 - Metric Server installed
 ![How to Setup Metric Server]()
 
@@ -33,8 +34,8 @@ ip-172-20-59-245.ap-southeast-1.compute.internal        master  True
 Your cluster houm-host-devops-11-sg.k8s.local is ready
 ```
 
-### Lets Play 
-- Lets deploy the php app for testing
+### Lets Play with CPU scaling   
+- Lets deploy the php app for testing which will be scaled on base of cpu metrics
 ```
 $ kubectl run php-apache --image=k8s.gcr.io/hpa-example --requests=cpu=200m --expose --port=80
 service/php-apache created

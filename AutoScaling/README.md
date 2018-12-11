@@ -1,4 +1,4 @@
-# Kubernetes Autoscaling : 
+# Kubernetes Autoscaling  
 
 When we talk about scaling we should always question ourself and get the answer of below questions.
 ```

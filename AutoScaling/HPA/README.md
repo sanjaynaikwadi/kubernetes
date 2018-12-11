@@ -96,7 +96,9 @@ Cool Your done, you can scale your pods according to your workload.
 
 ### Reference Links for additional information
 https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
+
 https://github.com/kubernetes/community/blob/master/contributors/design-proposals/autoscaling/horizontal-pod-autoscaler.md#autoscaling-algorithm
+
 https://medium.com/magalix/kubernetes-autoscaling-101-cluster-autoscaler-horizontal-pod-autoscaler-and-vertical-pod-2a441d9ad231
 
 

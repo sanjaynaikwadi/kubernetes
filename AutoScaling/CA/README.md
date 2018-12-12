@@ -59,6 +59,21 @@ aws autoscaling describe-auto-scaling-groups |grep AutoScalingGroupName
 
 NOTE : I have been using cluster created with KOPS it attaches the auto-scaling policy to all ASG associated with cluster, or else you can use the policy uploaded and attach to your ASG in AWS
 
+### Lets deploy the HPA
+[HPA]()
 
+Use the HPA which is explained and you will see at one point when your pods goes in pending state your new node will be spawned.
 
+- Verify with 
+```
+"kubectl get pods"
+"kubectl get nodes"
+```
+
+Once you stop the load, your newly spawn node will be deleted after the cooldown period.
+
+### Reference links
+https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler/cloudprovider/aws
+https://kumorilabs.com/blog/k8s-5-setup-horizontal-pod-cluster-autoscaling-kubernetes/
+https://medium.com/magalix/kubernetes-autoscaling-101-cluster-autoscaler-horizontal-pod-autoscaler-and-vertical-pod-2a441d9ad231
 

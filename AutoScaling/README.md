@@ -11,6 +11,6 @@ Autoscaling is one of the key features in Kubernetes cluster. It is a feature in
 Lets cover up the three way of autoscaling can be done in kubernetes. 
 
 * [Horizontal Pod Autoscaler - HPA](https://github.com/sanjaynaikwadi/kubernetes/tree/master/AutoScaling/HPA) 
-* [Vertical Pod Autoscaler - VPA]()
+* [Vertical Pod Autoscaler - VPA](https://github.com/sanjaynaikwadi/kubernetes/tree/master/AutoScaling/VPA)
 * [Cluster Autoscaler - CA](https://github.com/sanjaynaikwadi/kubernetes/tree/master/AutoScaling/CA)
 

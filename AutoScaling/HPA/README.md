@@ -3,14 +3,15 @@ As the name implies, HPA scales the number of pod replicas. Most DevOps use CPU 
 
 ## High level HPA workflow
 
-![HPA WorkFlow](https://github.com/sanjaynaikwadi/kubernetes/blob/master/AutoScaling/HPA/HPA.png)
+[HPA WorkFlow](https://github.com/sanjaynaikwadi/kubernetes/blob/master/AutoScaling/HPA/HPA.png)
 
 ### Prerequisites
 
 - Kubernetes Cluster (I tested with 1.10.11 via KOPS on AWS)
 - Resource limit set in deployment (check the default yaml file attached for reference)
 - Metric Server installed
-![How to Setup Metric Server](https://github.com/sanjaynaikwadi/kubernetes/tree/master/AutoScaling/Metric-Server)
+
+[How to Setup Metric Server](https://github.com/sanjaynaikwadi/kubernetes/tree/master/AutoScaling/Metric-Server)
 
 
 Assuming you have the below setup in working mode to carry out the testing, I have used AWS enviornment and used t2.micro instances for testing. I have also configured a seperate instance group (db-pool) for testing

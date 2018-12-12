@@ -39,3 +39,26 @@ ip-172-20-59-245.ap-southeast-1.compute.internal        master  True
 Your cluster houm-host-devops-11-sg.k8s.local is ready
 ```
 
+### Lets install the auto-scaler
+
+- Clone or download the yaml file and make necessary changes in file, you can specify multiple instance group ASG
+
+```
+            - --nodes=1:2:db-pool.houm-host-devops-11-sg.k8s.local
+```
+Let me explain what all fields are :
+- nodes - common name
+- 1:2 - Minimum : Maxmium node used for scale up and scale down
+- db-pool - ASG name
+- houm-host-devops-11-sg.k8s.local - Cluster name 
+
+You can also use aws cli to list the autoscaling group 
+```
+aws autoscaling describe-auto-scaling-groups |grep AutoScalingGroupName
+```
+
+NOTE : I have been using cluster created with KOPS it attaches the auto-scaling policy to all ASG associated with cluster, or else you can use the policy uploaded and attach to your ASG in AWS
+
+
+
+

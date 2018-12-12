@@ -14,9 +14,9 @@ In simple word you can say scale up and scale down of nodes as demanded.
 - Resource limit set in deployment with HPA enabled 
 - Metric Server installed
 
-![How to Setup Metric Server](https://github.com/sanjaynaikwadi/kubernetes/tree/master/AutoScaling/Metric-Server)
+[How to Setup Metric Server](https://github.com/sanjaynaikwadi/kubernetes/tree/master/AutoScaling/Metric-Server)
 
-![How to Setup HPA](https://github.com/sanjaynaikwadi/kubernetes/tree/master/AutoScaling/HPA)
+[How to Setup HPA](https://github.com/sanjaynaikwadi/kubernetes/tree/master/AutoScaling/HPA)
 
 Assuming you have the below setup in working mode to carry out the testing, I have used AWS enviornment and used t2.micro instances for testing. I have also configured a seperate instance group (db-pool) for testing
 

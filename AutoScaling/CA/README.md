@@ -74,6 +74,8 @@ Once you stop the load, your newly spawn node will be deleted after the cooldown
 
 ### Reference links
 https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler/cloudprovider/aws
+
 https://kumorilabs.com/blog/k8s-5-setup-horizontal-pod-cluster-autoscaling-kubernetes/
+
 https://medium.com/magalix/kubernetes-autoscaling-101-cluster-autoscaler-horizontal-pod-autoscaler-and-vertical-pod-2a441d9ad231
 

@@ -68,6 +68,7 @@ Use the HPA which is explained and you will see at one point when your pods goes
 ```
 "kubectl get pods"
 "kubectl get nodes"
+"kubectl logs cluster-autoscaler-67dfd6cfb9-vl97x -n kube-system -f"
 ```
 
 Once you stop the load, your newly spawn node will be deleted after the cooldown period.
@@ -81,14 +82,14 @@ Once you stop the load, your newly spawn node will be deleted after the cooldown
 [root@localhost ~]# kubectl get no
 NAME                                                STATUS    ROLES     AGE       VERSION
 ip-172-20-116-132.ap-southeast-1.compute.internal   Ready     node      12d       v1.10.11
-**ip-172-20-50-247.ap-southeast-1.compute.internal    Ready     node      1d        v1.10.11**
+ip-172-20-50-247.ap-southeast-1.compute.internal    Ready     node      1d        v1.10.11
 ip-172-20-52-218.ap-southeast-1.compute.internal    Ready     node      7d        v1.10.11
 ip-172-20-59-245.ap-southeast-1.compute.internal    Ready     master    12d       v1.10.11
 ```
 
 ```
 I1217 16:50:18.084534       1 static_autoscaler.go:355] Starting scale down
-**I1217 16:50:18.197431       1 scale_down.go:387] ip-172-20-50-247.ap-southeast-1.compute.internal was unneeded for 3m53.410923843s**
+I1217 16:50:18.197431       1 scale_down.go:387] ip-172-20-50-247.ap-southeast-1.compute.internal was unneeded for 3m53.410923843s
 I1217 16:50:18.197520       1 scale_down.go:446] No candidates for scale down
 I1217 16:50:18.666667       1 leaderelection.go:199] successfully renewed lease kube-system/cluster-autoscaler
 I1217 16:50:20.763498       1 leaderelection.go:199] successfully renewed lease kube-system/cluster-autoscaler

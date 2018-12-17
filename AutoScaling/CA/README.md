@@ -88,7 +88,7 @@ ip-172-20-59-245.ap-southeast-1.compute.internal    Ready     master    12d     
 
 ```
 I1217 16:50:18.084534       1 static_autoscaler.go:355] Starting scale down
-*I1217 16:50:18.197431       1 scale_down.go:387] ip-172-20-50-247.ap-southeast-1.compute.internal was unneeded for 3m53.410923843s
+*I1217 16:50:18.197431       1 scale_down.go:387] ip-172-20-50-247.ap-southeast-1.compute.internal was unneeded for 3m53.410923843s*
 I1217 16:50:18.197520       1 scale_down.go:446] No candidates for scale down
 I1217 16:50:18.666667       1 leaderelection.go:199] successfully renewed lease kube-system/cluster-autoscaler
 I1217 16:50:20.763498       1 leaderelection.go:199] successfully renewed lease kube-system/cluster-autoscaler

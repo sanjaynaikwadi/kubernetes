@@ -132,8 +132,9 @@ I1218 06:36:55.320583       1 scale_up.go:92] Upcoming 1 nodes
 
 ```
 
-- Verify your new node is launched
+- Verify new node is launched
 ```
+[root@localhost ~]# kubectl get no
 NAME                                                STATUS    ROLES     AGE       VERSION
 ip-172-20-116-132.ap-southeast-1.compute.internal   Ready     node      12d       v1.10.11
 ip-172-20-52-218.ap-southeast-1.compute.internal    Ready     node      7d        v1.10.11
@@ -141,7 +142,7 @@ ip-172-20-59-245.ap-southeast-1.compute.internal    Ready     master    12d     
 ip-172-20-62-212.ap-southeast-1.compute.internal    Ready     node      5m        v1.10.11
 ```
 
-### Lets delete all pods and see, once load is normal then we will see scale down logs and node is removed from cluster and deleted.
+### Lets delete deployment, once load is normal then we will see scale down logs and node is removed from cluster and deleted.
 ```
 kubectl delete deploy nginx
 kubectl get pod

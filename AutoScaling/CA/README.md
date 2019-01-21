@@ -39,6 +39,14 @@ ip-172-20-59-245.ap-southeast-1.compute.internal        master  True
 Your cluster houm-host-devops-11-sg.k8s.local is ready
 ```
 
+### Lets apply the IAM permissions to ASG
+
+Check the attached policy-json file and deploy via aws cli 
+
+```
+aws iam put-role-policy --role-name nodes.${KOPS_CLUSTER_NAME} --policy-name asg-nodes.${KOPS_CLUSTER_NAME} --policy-document file:///tmp/autoscale-aws-policy.json
+```
+
 ### Lets install the auto-scaler
 
 - Clone or download the yaml file and make necessary changes in file, you can specify multiple instance group ASG

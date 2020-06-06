@@ -98,7 +98,7 @@ spec:
           value: "minio"
         - name: MINIO_SECRET_KEY
           value: "minio123"
-        image: minio/minio:RELEASE.2017-05-05T01-14-51Z
+        image: minio/minio:RELEASE.2020-04-28T23-56-56Z
         args:
         - server
         - http://minio-0.minio.default.svc.cluster.local/data
@@ -119,7 +119,7 @@ spec:
   - metadata:
       name: data
       annotations:
-        volume.beta.kubernetes.io/storage-class: miniosc
+        volume.beta.kubernetes.io/storage-class: minio-sc
     spec:
       accessModes:
         - ReadWriteOnce
@@ -128,6 +128,26 @@ spec:
           storage: 5Gi
 ```
 
+- Expose the Service via NodePort or LoadBalancer
 
+vi minio-service-expose.yaml
 
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: minio-service
+spec:
+  type: NodePort
+  ports:
+    - port: 9000
+      nodePort: 30000
+  selector:
+    app: minio
+```
+
+`kubectl apply -f minio-service-expose.yaml`
+`
+
+- Access Minio
 
